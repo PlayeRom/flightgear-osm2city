@@ -5,9 +5,9 @@ Based on the instructions from http://wiki.flightgear.org/Howto:Using_osm2city.p
 
 Assumptions:
 * You have created directory `osm2city-work` in your `C:\Users\<your user name>\Documents\FlightGear\`
-* In `osm2city-work` directory you have unzipped osm2city, osm2city-data and osmosis
-* In `osm2city-work` directory you have `projects` direcory where is name of your scenry with params.ini file
-* you have createdyour output directory, e.g. in `C:\Users\<your user name>\Documents\FlightGear\Custom Scenery`
+* In `osm2city-work` directory you have unzipped `osm2city`, `osm2city-data` and `osmosis`
+* In `osm2city-work` directory you have `projects` directory where is a directory named as your scenry with `params.ini` file inside
+* You have created your output directory, e.g. in `C:\Users\<your user name>\Documents\FlightGear\Custom Scenery\<your dir>`
 
 Edit `create_scenery.bat` and change parameters inside:
 * DB_NAME - the uniques name of your scenery (without spaces)
@@ -18,3 +18,27 @@ Edit `create_scenery.bat` and change parameters inside:
 * CPU_THREAD - number of processor cores for parallel processing of scenery
 
 Then put the `create_scenery.bat` file in `osm2city-work` directory and run it.
+
+The structore of directories:
+```
+C:\Users\<your user name>\Documents\FlightGear\
+|
++---- Custom Scenery\<your-output-scenery-dir>
+|
++---- osm2city-work
+      |
+      +---- osm2city
+      |
+      +---- osm2city-data
+      |
+      +---- osmosis
+      |
+      +---- projects
+      |     |
+      |     +---- <your-secenry-name> <- the same as DB_NAME
+      |           |
+      |           +---params.ini
+      |
+      +---- create_scenery.bat
+```
+
