@@ -39,8 +39,8 @@ SET PBF_CROPPED=%PBF_DIR%\%WRITE_PBF%-cropped.pbf
 
 SET ASTERISK=
 IF "%LONGITUDE_MIN:~0,1%" == "-" (
-	REM If LONGITUDE_MIN is with minus sign, then set ASTERISK according to docs: https://osm2city.readthedocs.io/en/latest/generation.html
-	SET ASTERISK=*
+    REM If LONGITUDE_MIN is with minus sign, then set ASTERISK according to docs: https://osm2city.readthedocs.io/en/latest/generation.html
+    SET ASTERISK=*
 )
 
 REM ==========================================================================
