@@ -37,6 +37,12 @@ SET PGPASSWORD=%DB_PASS%
 REM Path with the name to the cropped PBF file
 SET PBF_CROPPED=%PBF_DIR%\%WRITE_PBF%-cropped.pbf
 
+SET ASTERISK=
+IF "%LONGITUDE_MIN:~0,1%" == "-" (
+	REM If LONGITUDE_MIN is with minus sign, then set ASTERISK according to docs: https://osm2city.readthedocs.io/en/latest/generation.html
+	SET ASTERISK=*
+)
+
 REM ==========================================================================
 
 REM We are deleting the database so as to be sure that createdb will succeed
@@ -68,7 +74,7 @@ psql --username=%DB_USER% -c "CREATE INDEX idx_relations_tags ON relations USING
 REM Generate the scenery, remember to create the params.ini file
 REM Doc build_tiles: https://osm2city.readthedocs.io/en/latest/generation.html
 REM Doc ini: https://osm2city.readthedocs.io/en/latest/parameters.html
-CALL osm2city\build_tiles.py -f projects\%INI_DIR%\params.ini -b %LONGITUDE_MIN%_%LATITUDE_MIN%_%LONGITUDE_MAX%_%LATITUDE_MAX% -p %CPU_THREAD%
+CALL osm2city\build_tiles.py -f projects\%INI_DIR%\params.ini -b %ASTERISK%%LONGITUDE_MIN%_%LATITUDE_MIN%_%LONGITUDE_MAX%_%LATITUDE_MAX% -p %CPU_THREAD%
 
 REM Delete the database and clean up after ourselves
 dropdb --username=%DB_USER% -e %DB_NAME%
