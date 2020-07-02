@@ -11,7 +11,7 @@ Assumptions:
 
 Edit `create_scenery.bat` and change parameters inside:
 * DB_NAME - the uniques name of your scenery (without spaces)
-* DB_PASS - password to your PosgreSQL database
+* DB_PASS - password to your PostgreSQL database
 * READ_PBF - the first part of the file name you downloaded from http://download.geofabrik.de/ e.g. for `dolnoslaskie-latest.osm.pfb` it will be `dolnoslaskie`.
 * PBF_DIR - the path where is located pfb file which you downloaded from http://download.geofabrik.de/
 * LATITUDE_MIN, LATITUDE_MAX, LONGITUDE_MIN, LONGITUDE_MAX - crop coordinates which you can read from TerraGear GUI (http://wiki.flightgear.org/TerraGear_GUI)
